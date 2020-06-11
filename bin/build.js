@@ -22,13 +22,13 @@ for (let i = 0; i < geojson.features.length; i++) {
 
     if (!data[prefCode][adminCode]) {
       data[prefCode][adminCode] = {
-        name: `${feature.properties['N03_001']}${feature.properties['N03_003'] || ''}${feature.properties['N03_004'] || ''}`,
         features: []
       }
     }
 
     data[prefCode][adminCode].features.push({
       type: 'Feature',
+      properties: {name: `${feature.properties['N03_001']}${feature.properties['N03_003'] || ''}${feature.properties['N03_004'] || ''}`},
       geometry: feature.geometry
     })
   } catch(e) {
@@ -42,7 +42,6 @@ for (const pref in data) {
     const file = path.join(path.dirname(path.dirname(__filename)), 'docs', pref, `${admin}.json`)
     const newjson = {
       type: "FeatureCollection",
-      properties: {name: data[pref][admin].name},
       features: data[pref][admin].features
     }
 
