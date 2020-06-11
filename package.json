@@ -1,0 +1,11 @@
+{
+  "name": "japanese-admins",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "node --max-old-space-size=4096 ./bin/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
